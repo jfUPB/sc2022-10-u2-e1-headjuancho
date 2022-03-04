@@ -36,7 +36,13 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    
+    char tamano[40];
+    fgets(tamano, sizeof(tamano), stdin);
+    int size = 0;
+    sscanf(tamano, "%d", &size);
+
+
+
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
