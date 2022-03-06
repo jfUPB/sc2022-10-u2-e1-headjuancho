@@ -66,7 +66,35 @@ void getArray(struct array *parr)
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
-    
+    arrOut->size =0;
+    arrOut->pdata = malloc(40);
+    int comunes[40];
+
+
+     for(int i = 0;i < arrIn1->size; i++)
+     {
+         for(int j = 0; j < arrIn2->size; j++)
+         {
+             if(arrIn1->pdata[i]==arrIn2->pdata[j])
+             {  int bool = 0;
+                 for(int k = 0; k < arrOut->size; k++)
+                 {
+                     if(comunes[k] == arrIn1->pdata[i])
+                     {
+                     bool = 1;
+                     }
+                 }
+                 if (bool !=1)
+                 {
+                     comunes[arrOut->size]= arrIn1->pdata[i];
+                     arrOut->size++;
+                 
+                }
+             
+
+             }
+         }
+     }
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
