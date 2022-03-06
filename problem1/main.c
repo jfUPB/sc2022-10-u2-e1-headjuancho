@@ -41,7 +41,26 @@ void getArray(struct array *parr)
     int size = 0;
     sscanf(tamano, "%d", &size);
 
+    parr->size = size;
 
+    uint numeros[size];
+
+    parr->pdata = malloc(sizeof(int)*size);
+
+    for(int i = 0; i < size; i++)
+    {
+        char contenido[40];
+        fgets(contenido, sizeof(contenido), stdin);
+
+        int conversion=0;
+
+        sscanf(contenido, "%d", &conversion);
+        
+        parr->pdata[i]=conversion;
+
+    }
+
+    
 
 }
 
