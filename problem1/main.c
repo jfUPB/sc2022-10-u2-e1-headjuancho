@@ -95,6 +95,14 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
              }
          }
      }
+
+ 
+    for (int l = 0; l < arrOut->size; l++)
+    {
+        arrOut->pdata[l]= comunes[l];
+    }
+  
+    
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
