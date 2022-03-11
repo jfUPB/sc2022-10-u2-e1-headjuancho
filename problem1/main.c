@@ -36,11 +36,73 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
+    char tamano[40];
+    fgets(tamano, sizeof(tamano), stdin);
+    int size = 0;
+    sscanf(tamano, "%d", &size);
+
+    parr->size = size;
+
+    uint numeros[size];
+
+    parr->pdata = malloc(sizeof(int)*size);
+
+    for(int i = 0; i < size; i++)
+    {
+        char contenido[40];
+        fgets(contenido, sizeof(contenido), stdin);
+
+        int conversion=0;
+
+        sscanf(contenido, "%d", &conversion);
+        
+        parr->pdata[i]=conversion;
+
+    }
+
     
+
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
+    arrOut->size =0;
+    
+    int comunes[40];
+
+
+     for(int i = 0;i < arrIn1->size; i++)
+     {
+         for(int j = 0; j < arrIn2->size; j++)
+         {
+             if(arrIn1->pdata[i]==arrIn2->pdata[j])
+             {  int bool = 0;
+                 for(int k = 0; k < arrOut->size; k++)
+                 {
+                     if(comunes[k] == arrIn1->pdata[i])
+                     {
+                     bool = 1;
+                     }
+                 }
+                 if (bool !=1)
+                 {
+                     comunes[arrOut->size]= arrIn1->pdata[i];
+                     arrOut->size++;
+                 
+                }
+             
+
+             }
+         }
+     }
+
+    arrOut->pdata = malloc(sizeof(int)*arrOut->size);
+ 
+    for (int l = 0; l < arrOut->size; l++)
+    {
+        arrOut->pdata[l]= comunes[l];
+    }
+  
     
 }
 
